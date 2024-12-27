@@ -566,8 +566,7 @@ releases.
     def find_spec(self, fullname, path, target=None):
         loader = self.find_module(fullname, path)
         if loader is not None:
-            return importlib.machinery.ModuleSpec(
-            fullname, loader)
+            return importlib.util.spec_from_loader(fullname, loader)
         return None
 
     def _create_module(self, fullname, sys_modules=True):
